@@ -6,6 +6,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,15 +44,15 @@ public class visitorController {
 		}
 		return new ResponseEntity<Object>(HttpStatus.METHOD_FAILURE);
 	}
-	
-	@PutMapping(value = "/fetch-all")
-	public ResponseEntity<Object> fetchAllVisitor(@RequestBody AddVisitorRequest addVisitorRequest) {
+
+	@GetMapping(value = "/fetch-all")
+	public ResponseEntity<Object> fetchAllVisitor() {
 		List<VisitorDTO> response = visitorService.fetchAllVisitor();
 		return new ResponseEntity<Object>(response, HttpStatus.OK);
 	}
 
-	@PutMapping(value = "/delete")
-	public ResponseEntity<Object> deleteVisitor(@RequestBody Long visitorId) {
+	@DeleteMapping(value = "/delete")
+	public ResponseEntity<Object> deleteVisitor(@RequestParam Long visitorId) {
 		int response = visitorService.deleteVisitor(visitorId);
 		if (response == 1) {
 			return new ResponseEntity<Object>(HttpStatus.OK);

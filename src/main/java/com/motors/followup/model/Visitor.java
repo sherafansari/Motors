@@ -37,11 +37,11 @@ public class Visitor {
 	@Column(name = "salesman_name")
 	private String salesmanName;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_timestamp")
 	private Date createdTimestamp;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "modified_timestamp")
 	private Date modifiedTimestamp;
 

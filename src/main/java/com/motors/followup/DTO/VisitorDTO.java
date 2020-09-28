@@ -1,6 +1,4 @@
-package com.motors.followup.request;
-
-import com.sun.istack.NotNull;
+package com.motors.followup.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,8 +11,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class AddVisitorRequest {
-	@NotNull
+public class VisitorDTO {
+	private Long visitorId;
 	private String visitorName;
 	private String address;
 	private String profession;

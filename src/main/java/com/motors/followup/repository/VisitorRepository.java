@@ -7,5 +7,5 @@ import com.motors.followup.model.Visitor;
 
 @Repository
 public interface VisitorRepository extends JpaRepository<Visitor, Long> {
-
+	Visitor findByVisitorId(Long visitorId);
 }
